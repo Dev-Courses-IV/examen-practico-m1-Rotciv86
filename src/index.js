@@ -16,10 +16,14 @@ const students = [
   ];
   
 
-  function showStudents () {
-    const printButton = document.getElementById("printButton")
 
+
+  function showStudents () {
+
+    const printButton = document.getElementById("printButton")
+    
     printButton.addEventListener("click", (event) => {
+      if (!document.getElementById("studentsList").querySelector("li")) {
       event.preventDefault()
 
       const infoStudentList = document.getElementById("studentsList")
@@ -28,13 +32,47 @@ const students = [
         console.log(`${student.name} ${student.age}`)
 
         const studentInfo = document.createElement("li")
-        studentInfo.innerText = `${student.name} ${student.age}`
+        studentInfo.classList.add("flex","flex-row","justify-around","rounded-lg","shadow-xl","p-4","bg-white")
+
+        const nameTitle = document.createElement("h3")
+        nameTitle.classList.add("text-purple-900","underline")
+        nameTitle.innerText = "Nombre"
+        const ageTitle = document.createElement("h3")
+        ageTitle.classList.add("text-purple-900","underline")
+
+        ageTitle.innerText = "Edad"
+
+        const nameContent = document.createElement("p")
+        nameContent.innerText = student.name
+        const ageContent = document.createElement("p")
+        ageContent.innerText = student.age
+
+        const infoName = document.createElement("div")
+        const infoAge = document.createElement("div")
+
+        infoName.classList.add("flex","flex-col","gap-4","text-emerald-600")
+        infoAge.classList.add("flex","flex-col","gap-4","text-emerald-600")
+
+
+        infoName.appendChild(nameTitle)
+        infoName.appendChild(nameContent)
+
+        infoAge.appendChild(ageTitle)
+        infoAge.appendChild(ageContent)
+
+        studentInfo.appendChild(infoName)
+        studentInfo.appendChild(infoAge)
+
+
+
+
 
         infoStudentList.appendChild(studentInfo)
 
       }
+    }
     })
-    
+  
   }
 
   showStudents()
