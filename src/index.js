@@ -32,7 +32,7 @@ const students = [
         console.log(`${student.name} ${student.age}`)
 
         const studentInfo = document.createElement("li")
-        studentInfo.classList.add("flex","flex-row","justify-around","rounded-lg","shadow-xl","p-4","bg-white")
+        studentInfo.classList.add("flex","flex-row","justify-around","rounded-lg","shadow-xl","p-4","bg-white","hover:bg-sky-300")
 
         const nameTitle = document.createElement("h3")
         nameTitle.classList.add("text-purple-900","underline")
