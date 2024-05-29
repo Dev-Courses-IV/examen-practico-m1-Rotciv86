@@ -15,3 +15,26 @@ const students = [
     { name: "Constanza", age: 28, email: "constanza@email.com" },
   ];
   
+
+  function showStudents () {
+    const printButton = document.getElementById("printButton")
+
+    printButton.addEventListener("click", (event) => {
+      event.preventDefault()
+
+      const infoStudentList = document.getElementById("studentsList")
+
+      for (let student of students){
+        console.log(`${student.name} ${student.age}`)
+
+        const studentInfo = document.createElement("li")
+        studentInfo.innerText = `${student.name} ${student.age}`
+
+        infoStudentList.appendChild(studentInfo)
+
+      }
+    })
+    
+  }
+
+  showStudents()
